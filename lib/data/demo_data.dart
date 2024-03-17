@@ -1,4 +1,5 @@
 import 'package:apple/models/category_model.dart';
+import 'package:apple/models/product_model.dart';
 
 class DemoData {
   static List<String> sliderImages = [
@@ -14,5 +15,33 @@ class DemoData {
     CategoryModel(image: 'assets/images/iphone.png', name: 'i Phone'),
     CategoryModel(image: 'assets/images/watch.png', name: 'Watch'),
     CategoryModel(image: 'assets/images/airpods.png', name: 'AirPods'),
+  ];
+
+  static List<Product> products = [
+    Product(
+        image:
+            'https://static.doji.co/product/medias/smartphones/apple/iphone-14/1-front-back-starlight.png',
+        price: 999,
+        title: 'iPhone 15 Pro'),
+    Product(
+        image:
+            'https://static.doji.co/product/medias/smartphones/apple/iphone-14/1-front-back-yellow.png',
+        price: 850,
+        title: 'iPhone 13'),
+    Product(
+        image:
+            'https://static.doji.co/product/medias/smartphones/apple/iphone-14/1-front-back-purple.png',
+        price: 789,
+        title: 'iPhone 13'),
+    Product(
+        image:
+            'https://static.doji.co/product/medias/smartphones/apple/iphone-14/1-front-back-blue.png',
+        price: 1100,
+        title: 'iPhone 14'),
+    Product(
+        image:
+            'https://static.doji.co/product/medias/smartphones/apple/iphone-14/1-front-back-midnight.png',
+        price: 1299,
+        title: 'iPhone 15')
   ];
 }
