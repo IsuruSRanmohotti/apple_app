@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "964146861421",
+    "project_id": "apple-ecommerce0",
+    "storage_bucket": "apple-ecommerce0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964146861421:android:bcde32b3f1b30d96d43664",
+        "android_client_info": {
+          "package_name": "lk.ceylonedge.apple"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpNToC9lGVpw50s8xYKPgNe94IGtuj6Q8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
