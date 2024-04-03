@@ -1,3 +1,4 @@
+import 'package:apple/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -10,8 +11,7 @@ class CustomAppBar extends StatelessWidget {
     return Container(
       height: 50,
       decoration: BoxDecoration(
-          color: Colors.grey.shade700,
-          borderRadius: BorderRadius.circular(50)),
+          color: Colors.grey.shade700, borderRadius: BorderRadius.circular(50)),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),
         child: Row(
@@ -27,9 +27,14 @@ class CustomAppBar extends StatelessWidget {
               'Apple Store',
               style: TextStyle(color: Colors.white, fontSize: 16),
             ),
-            const CircleAvatar(
-              radius: 15,
-            ),
+            IconButton(
+                onPressed: () {
+                  AuthController.signOutUser(context);
+                },
+                icon: const Icon(
+                  Icons.exit_to_app,
+                  color: Colors.white,
+                ))
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:apple/screens/auth_screens/auth_sreen.dart';
+import 'package:apple/screens/auth_screens/auth_state_screen.dart';
 import 'package:apple/screens/homepage/homepage.dart';
 import 'package:apple/utils/custom_navigator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -9,7 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+  const SplashScreen({required this.type, super.key});
+
+  final String type;
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -19,17 +22,15 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3), () {
-      FirebaseAuth.instance.authStateChanges().listen((User? user) {
-        if (user == null) {
-          Logger().e('User is currently signed out!');
-          CustomNavigator.push(context, const AuthScreen());
-        } else {
-          Logger().f('User is signed in!');
-          CustomNavigator.push(context, const HomePage());
-        }
+    if (widget.type == 'authScreen') {
+      Timer(Duration(seconds: 3), () {
+        CustomNavigator.pushReplacement(context, AuthScreen());
       });
-    });
+    } else if(widget.type == 'addUser'){
+
+    }else if(widget.type == 'fetchUser'){
+
+    }
   }
 
   @override
