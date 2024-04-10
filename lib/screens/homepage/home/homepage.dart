@@ -1,3 +1,5 @@
+import 'package:apple/screens/homepage/profile/profile_view/profile_view.dart';
+import 'package:apple/utils/custom_navigator.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/categories.dart';
@@ -47,6 +49,9 @@ class _HomePageState extends State<HomePage> {
                           icon: Icons.emoji_people,
                           color: Colors.green,
                           bgColor: Colors.green.shade100,
+                          onTap: () {
+                            CustomNavigator.push(context, const ProfileView());
+                          },
                         ),
                         CustomIconButton(
                           text: 'Favorite',
@@ -87,29 +92,34 @@ class CustomIconButton extends StatelessWidget {
       required this.text,
       required this.icon,
       this.color = Colors.blue,
-      this.bgColor = Colors.blue});
+      this.bgColor = Colors.blue,
+      this.onTap});
 
   final String text;
   final IconData icon;
   final Color color;
   final Color bgColor;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CircleAvatar(
-            backgroundColor: bgColor,
-            child: Icon(
-              icon,
-              color: color,
-            )),
-        Text(
-          text,
-          style: const TextStyle(
-              fontSize: 12, color: Colors.grey, fontWeight: FontWeight.w600),
-        )
-      ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          CircleAvatar(
+              backgroundColor: bgColor,
+              child: Icon(
+                icon,
+                color: color,
+              )),
+          Text(
+            text,
+            style: const TextStyle(
+                fontSize: 12, color: Colors.grey, fontWeight: FontWeight.w600),
+          )
+        ],
+      ),
     );
   }
 }
