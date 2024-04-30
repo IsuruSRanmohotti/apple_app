@@ -1,4 +1,5 @@
 import 'package:apple/providers/auth_screen_provider.dart';
+import 'package:apple/providers/product_provider.dart';
 import 'package:apple/providers/user_provider.dart';
 import 'package:apple/screens/auth_screens/auth_state_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -16,7 +17,10 @@ void main() async {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => AuthScreenProvider()),
-      ChangeNotifierProvider(create: (context) => UserProvider())
+      ChangeNotifierProvider(create: (context) => UserProvider()),
+      ChangeNotifierProvider(
+        create: (context) => ProductProvider(),
+      )
     ],
     child: const MyApp(),
   ));

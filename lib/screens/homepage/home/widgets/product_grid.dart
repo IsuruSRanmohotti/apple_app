@@ -17,24 +17,21 @@ class ProductGrid extends StatelessWidget {
         ),
         const Text(
           'The latest.',
-          style:
-              TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
         ),
         const Text(
           'Take a look at what’s new, right now.',
-          style:
-              TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
         ),
         GridView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: DemoData.products.length,
-          gridDelegate:
-              const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.92,
-                  crossAxisSpacing: 15,
-                  mainAxisSpacing: 5),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.92,
+              crossAxisSpacing: 15,
+              mainAxisSpacing: 5),
           itemBuilder: (context, index) {
             return SizedBox(
               height: 200,
@@ -63,14 +60,12 @@ class ProductGrid extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          DemoData.products[index].title,
-                          style:
-                              const TextStyle(color: Colors.white),
+                          DemoData.products[index].name,
+                          style: const TextStyle(color: Colors.white),
                         ),
                         Text(
                           '\$ ${DemoData.products[index].price}',
-                          style:
-                              const TextStyle(color: Colors.grey),
+                          style: const TextStyle(color: Colors.grey),
                         ),
                         const SizedBox(
                           height: 5,

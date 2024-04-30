@@ -2,7 +2,6 @@ import 'package:apple/providers/auth_screen_provider.dart';
 import 'package:apple/screens/splash_screens/splash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 
 class AuthStateScreen extends StatelessWidget {
@@ -15,7 +14,6 @@ class AuthStateScreen extends StatelessWidget {
         body: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
-            Logger().e('Refreshing...');
             final splashType =
                 Provider.of<AuthScreenProvider>(context, listen: false)
                     .splashState;
