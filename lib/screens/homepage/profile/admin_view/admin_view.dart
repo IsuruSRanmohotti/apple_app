@@ -34,10 +34,30 @@ class AdminView extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                const CircleAvatar(
-                  radius: 70,
-                  child: Icon(Icons.add),
-                ),
+                productProvider.pickedImage == null
+                    ? GestureDetector(
+                        onTap: () {
+                          productProvider.pickProductImage();
+                        },
+                        child: const CircleAvatar(
+                          radius: 70,
+                          child: Icon(Icons.add),
+                        ),
+                      )
+                    : Column(
+                        children: [
+                          Image(
+                            image: FileImage(productProvider.pickedImage!),
+                            height: 140,
+                            fit: BoxFit.fitHeight,
+                          ),
+                          FilledButton(
+                              onPressed: () {
+                                productProvider.pickProductImage();
+                              },
+                              child: const Text('Change Image'))
+                        ],
+                      ),
                 CustomTextField(
                     controller: productProvider.nameController,
                     hint: 'Product Name',
@@ -75,7 +95,7 @@ class AdminView extends StatelessWidget {
                                 },
                                 child: Chip(
                                     backgroundColor:
-                                        productProvider.selectedCategory! ==
+                                        productProvider.selectedCategory ==
                                                 DemoData.categories[index].name
                                             ? Colors.blue
                                             : Colors.white,
@@ -83,7 +103,7 @@ class AdminView extends StatelessWidget {
                                       DemoData.categories[index].name,
                                       style: TextStyle(
                                         color: productProvider
-                                                    .selectedCategory! ==
+                                                    .selectedCategory ==
                                                 DemoData.categories[index].name
                                             ? Colors.white
                                             : Colors.black,
@@ -96,7 +116,13 @@ class AdminView extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                CustomButton(size: size, text: 'Add Product')
+                CustomButton(
+                  size: size,
+                  text: 'Add Product',
+                  ontap: () {
+                    productProvider.startAddProduct(context);
+                  },
+                )
               ],
             );
           }),
